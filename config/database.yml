@@ -49,7 +49,11 @@ test:
 #
 production:
   <<: *default
-  host: <%= ENV['NORTEC_APP_DATABASE_HOST'] %>
-  database: <%= ENV['NORTEC_APP_DATABASE'] %>
-  username: <%= ENV['NORTEC_APP_DATABASE_USERNAME'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  socket: /tmp/mysql.sock
+  host: private-nortec-db-cluster-do-user-2535638-0.b.db.ondigitalocean.com
+  database: defaultdb
+  username: doadmin
   password: <%= ENV['NORTEC_APP_DATABASE_PASSWORD'] %>
