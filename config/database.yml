@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: nortec
-  username: nortec_app
+  database: <%= ENV['NORTEC_APP_DATABASE'] %>
+  username: <%= ENV['NORTEC_APP_DATABASE_USERNAME'] %>
   password: <%= ENV['NORTEC_APP_DATABASE_PASSWORD'] %>
